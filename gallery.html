@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>معرض الصور التاريخية - تاريخ اليمن</title>
+    
+    <!-- Google Fonts للخطوط العربية -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            padding: 20px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+        
+        .period-filter {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 25px;
+            padding: 8px 20px;
+            margin: 5px;
+            border: none;
+            color: white;
+            font-family: 'Cairo', sans-serif;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .period-filter:hover, .period-filter.active {
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .hero-gallery {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero-gallery h1 {
+            font-family: 'Amiri', serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero-gallery p {
+            font-family: 'Cairo', sans-serif;
+            font-size: 1.3rem;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="container">
+            <div class="row align-items-center py-3">
+                <div class="col-md-3">
+                    <h2 class="logo"><i class="fas fa-landmark"></i> تاريخ اليمن</h2>
+                </div>
+                <div class="col-md-9">
+                    <div class="header-info d-flex justify-content-end">
+                        <div class="info-item me-4">
+                            <i class="fas fa-phone"></i>
+                            <span>+967 1 234567</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>info@yemenhistory.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.html"><i class="fas fa-home"></i> الرئيسية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="destinations.html">الحقب التاريخية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="gallery.html"><i class="fas fa-images"></i> معرض الصور</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="timeline.html"><i class="fas fa-history"></i> الخط الزمني</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="offers.html">الثقافة والتراث</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html"><i class="fas fa-envelope"></i> اتصل بنا</a>
+                    </li>
+                    <li class="nav-item ms-3">
+                        <a class="nav-link btn btn-outline-light px-3" href="index.html">تسجيل الدخول</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gallery">
+        <div class="container">
+            <h1>معرض الصور التاريخية</h1>
+            <p>رحلة بصرية عبر تاريخ اليمن العريق من الماضي إلى الحاضر</p>
+        </div>
+    </section>
+
+    <!-- Filter Buttons -->
+    <section class="py-4 bg-light">
+        <div class="container text-center">
+            <h3 class="mb-4" style="font-family: 'Amiri', serif; color: #2c3e50;">تصفح حسب الفترة التاريخية</h3>
+            <button class="period-filter active" data-period="all">جميع الصور</button>
+            <button class="period-filter" data-period="ancient">الحضارات القديمة</button>
+            <button class="period-filter" data-period="islamic">العصر الإسلامي</button>
+            <button class="period-filter" data-period="modern">العصر الحديث</button>
+            <button class="period-filter" data-period="culture">التراث والثقافة</button>
+            <button class="period-filter" data-period="nature">الطبيعة اليمنية</button>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row" id="galleryContainer">
+                
+                <!-- Ancient Period -->
+                <div class="col-lg-4 col-md-6 gallery-item" data-category="ancient">
+                    <img src="images/مملكة سبأ - تاريخ اليمن (ممالك اليمن القديم).jpeg" alt="مملكة سبأ">
+                    <div class="gallery-overlay">
+                        <h5>مملكة سبأ العظيمة</h5>
+                        <p>مهد الحضارة اليمنية ومملكة الملكة بلقيس الشهيرة</p>
+                        <small><i class="fas fa-calendar"></i> القرن العاشر قبل الميلاد</small>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 gallery-item" data-category="ancient">
+                    <img src="images/اليمن - جنبية تم نحتها من الحجر في محافظة صعدة….jpeg" alt="جنبية حجرية قديمة">
+                    <div class="gallery-overlay">
+                        <h5>الجنبية الحجرية القديمة</h5>
+                        <p>رمز الرجولة والشجاعة اليمنية منحوتة من الحجر</p>
+                        <small><i class="fas fa-map-marker-alt"></i> محافظة صعدة</small>
+                    </div>
+                </div>
+
+                <!-- Islamic Period -->
+                <div class="col-lg-4 col-md-6 gallery-item" data-category="islamic">
+                    <img src="images/صنعاء القديمة اليمن Old Sana'a Yemen 🇾🇪.jpeg" alt="صنعاء القديمة">
+                    <div class="gallery-overlay">
+                        <h5>صنعاء القديمة</h5>
+                        <p>عاصمة اليمن التاريخية وموقع اليونسكو للتراث العالمي</p>
+                        <small><i class="fas fa-star"></i> تراث عالمي</small>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 gallery-item" data-category="islamic">
+                    <img src="images/أحد ازقة مدينة صنعاء القديمة - اليمن.jpeg" alt="أزقة صنعاء القديمة">
+                    <div class="gallery-overlay">
+                        <h5>أزقة صنعاء التاريخية</h5>
+                        <p>الهندسة المعمارية اليمنية الفريدة في أزقة المدينة القديمة</p>
+                        <small><i class="fas fa-building"></i> معمار إسلامي</small>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 gallery-item" data-category="islamic">
+                    <img src="images/جسر شهارة _ عدسة _ معاذ الشعيبي.jpeg" alt="جسر شهارة">
+                    <div class="gallery-overlay">
+                        <h5>جسر شهارة الأثري</h5>
+                        <p>عبقرية الهندسة اليمنية وأحد أقدم الجسور في العالم</p>
+                        <small><i class="fas fa-clock"></i> القرن السابع عشر</small>
+                    </div>
+                </div>
+
+                <!-- Modern Period -->
+                <div class="col-lg-4 col-md-6 gallery-item" data-category="modern">
+                    <img src="images/باب اليمن - صنعاء عام 1987م_.jpeg" alt="باب اليمن 1987">
+                    <div class="gallery-overlay">
+                        <h5>باب اليمن - 1987</h5>
+                        <p>صورة تاريخية لباب اليمن في صنعاء من الثمانينات</p>
+                        <small><i class="fas fa-calendar"></i> عام 1987م</small>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 gallery-item" data-category="modern">
+                    <img src="images/#yemen #vintageyemen #yemeniarchive #yemenia….jpeg" alt="اليمن القديم">
+                    <div class="gallery-overlay">
+                        <h5>أرشيف اليمن القديم</h5>
+                        <p>صور نادرة من الأرشيف اليمني التاريخي</p>
+                        <small><i class="fas fa-archive"></i> أرشيف تاريخي</small>
+                    </div>
+                </div>
+
+                <!-- Culture -->
+                <div class="col-lg-4 col-md-6 gallery-item" data-category="culture">
+                    <img src="images/بالصور التراث اليمني ازياء وملابس يمنية 2020.jpeg" alt="الأزياء التراثية">
+                    <div class="gallery-overlay">
+                        <h5>الأزياء التراثية اليمنية</h5>
+                        <p>التراث الشعبي اليمني الأصيل في الملابس والأزياء</p>
+                        <small><i class="fas fa-tshirt"></i> تراث شعبي</small>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 gallery-item" data-category="culture">
+                    <img src="images/Yemen • Yemeni traditional clothing • Traditional….jpeg" alt="الزي اليمني التقليدي">
+                    <div class="gallery-overlay">
+                        <h5>الزي اليمني التقليدي</h5>
+                        <p>الأزياء اليمنية التقليدية التي تعكس الهوية الثقافية</p>
+                        <small><i class="fas fa-user-friends"></i> ثقافة أصيلة</small>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 gallery-item" data-category="culture">
+                    <img src="images/Yemen culture.jpeg" alt="الثقافة اليمنية">
+                    <div class="gallery-overlay">
+                        <h5>الثقافة اليمنية</h5>
+                        <p>تنوع وغنى الثقافة والتراث الشعبي اليمني</p>
+                        <small><i class="fas fa-heart"></i> ثقافة متنوعة</small>
+                    </div>
+                </div>
+
+                <!-- Nature -->
+                <div class="col-lg-4 col-md-6 gallery-item" data-category="nature">
+                    <img src="images/اجمل الصورة الطبيعة لليمن وريف اليمن.jpeg" alt="جمال الطبيعة اليمنية">
+                    <div class="gallery-overlay">
+                        <h5>جمال الطبيعة اليمنية</h5>
+                        <p>المناظر الطبيعية الخلابة والريف اليمني الجميل</p>
+                        <small><i class="fas fa-mountain"></i> طبيعة ساحرة</small>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 gallery-item" data-category="nature">
+                    <img src="images/Haraz mountain village - Yemen.jpeg" alt="قرية جبلية في هراز">
+                    <div class="gallery-overlay">
+                        <h5>قرية هراز الجبلية</h5>
+                        <p>قرى اليمن الجبلية التقليدية بجمالها الطبيعي الأخاذ</p>
+                        <small><i class="fas fa-home"></i> قرى تراثية</small>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 gallery-item" data-category="nature">
+                    <img src="images/60468127-137c-4ded-a0d2-b0b28ee4dfca.jpeg" alt="جزيرة سقطرى">
+                    <div class="gallery-overlay">
+                        <h5>جزيرة سقطرى</h5>
+                        <p>جوهرة بحر العرب وموقع التراث الطبيعي العالمي</p>
+                        <small><i class="fas fa-leaf"></i> تراث طبيعي</small>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>تاريخ اليمن</h5>
+                    <p>استكشف تاريخ اليمن العريق وحضارته العظيمة من خلال رحلة تعليمية شاملة.</p>
+                </div>
+                <div class="col-md-6">
+                    <h5>روابط سريعة</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="home.html" class="text-white-50">الرئيسية</a></li>
+                        <li><a href="destinations.html" class="text-white-50">الحقب التاريخية</a></li>
+                        <li><a href="gallery.html" class="text-white-50">معرض الصور</a></li>
+                        <li><a href="contact.html" class="text-white-50">اتصل بنا</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p>&copy; 2024 تاريخ اليمن. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Gallery Filter Function
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.period-filter');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+
+                    const filterValue = this.getAttribute('data-period');
+
+                    galleryItems.forEach(item => {
+                        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                            item.style.display = 'block';
+                            item.style.animation = 'fadeIn 0.5s ease-in-out';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Add fadeIn animation
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes fadeIn {
+                    from { opacity: 0; transform: translateY(20px); }
+                    to { opacity: 1; transform: translateY(0); }
+                }
+            `;
+            document.head.appendChild(style);
+        });
+    </script>
+</body>
+</html>

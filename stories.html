@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الحكايات والقصص التراثية - تاريخ اليمن</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            direction: rtl;
+            text-align: right;
+        }
+        
+        .logo {
+            font-family: 'Amiri', serif;
+            font-weight: 700;
+            color: #007bff;
+            margin: 0;
+            font-size: 1.8rem;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .card {
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+        }
+        
+        .card-title {
+            font-family: 'Amiri', serif;
+            font-weight: 700;
+            color: #343a40;
+        }
+        
+        .story-title {
+            font-family: 'Amiri', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 10px 0;
+        }
+        
+        .story-body {
+            padding: 25px;
+        }
+        
+        .story-excerpt {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        .moral-lesson {
+            background: #f8f9fa;
+            border-left: 4px solid #007bff;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        
+        .story-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+        
+        .story-tag {
+            background: #e3f2fd;
+            color: #1565c0;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+        
+        .filter-section {
+            background: #f8f9fa;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        
+        .filter-btn {
+            margin: 5px;
+            border-radius: 25px;
+            padding: 8px 20px;
+            border: 2px solid #007bff;
+            background: white;
+            color: #007bff;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn.active {
+            background: #007bff;
+            color: white;
+        }
+        
+        .hero-stories {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .hero-stories h1 {
+            font-family: 'Amiri', serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .fade-in.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-stories h1 {
+                font-size: 2.5rem;
+            }
+            
+            .story-title {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="home-fast.html" style="font-family: 'Amiri', serif; font-size: 1.5rem;">
+                <i class="fas fa-landmark me-2"></i>
+                تاريخ اليمن
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="home-fast.html">
+                            <i class="fas fa-home me-1"></i>الرئيسية
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="destinations.html">
+                            <i class="fas fa-clock me-1"></i>الحقب التاريخية
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery.html">
+                            <i class="fas fa-images me-1"></i>معرض الصور
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="timeline.html">
+                            <i class="fas fa-timeline me-1"></i>الخط الزمني
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="figures.html">
+                            <i class="fas fa-users me-1"></i>الشخصيات
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="stories.html">
+                            <i class="fas fa-book-open me-1"></i>الحكايات التراثية
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="offers.html">
+                            <i class="fas fa-palette me-1"></i>التراث والثقافة
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">
+                            <i class="fas fa-envelope me-1"></i>تواصل معنا
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-stories">
+        <div class="container">
+            <h1>الحكايات والقصص التراثية</h1>
+            <p class="lead">كنوز من التراث الشعبي اليمني العريق</p>
+            <div class="mt-4">
+                <i class="fas fa-scroll fa-3x mb-3"></i>
+                <p>حكايات خالدة تنقل حكمة الأجداد وتراث الأجيال</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="filter-section">
+        <div class="container">
+            <div class="text-center">
+                <h3 class="mb-4" style="color: #2c3e50; font-family: 'Amiri', serif;">تصفح الحكايات حسب النوع</h3>
+                <div class="filter-buttons">
+                    <button class="btn filter-btn active" data-filter="all">جميع الحكايات</button>
+                    <button class="btn filter-btn" data-filter="wisdom">حكايات الحكمة</button>
+                    <button class="btn filter-btn" data-filter="hero">حكايات البطولة</button>
+                    <button class="btn filter-btn" data-filter="love">حكايات الحب</button>
+                    <button class="btn filter-btn" data-filter="moral">حكايات أخلاقية</button>
+                    <button class="btn filter-btn" data-filter="funny">حكايات طريفة</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stories Section -->
+    <section class="stories-section py-5">
+        <div class="container">
+            <div id="stories-container" class="row">
+                
+                <!-- Story 1: حكاية الأمير والساحرة -->
+                <div class="col-lg-6 col-xl-4 mb-4 story-item fade-in" data-category="hero">
+                    <div class="story-card">
+                        <div class="story-header">
+                            <div class="story-category">حكايات البطولة</div>
+                            <h3 class="story-title">الأمير والساحرة الشريرة</h3>
+                        </div>
+                        <div class="story-body">
+                            <p class="story-excerpt">
+                                في قديم الزمان، كان هناك أمير شجاع في مملكة سبأ، واجه ساحرة شريرة تحولت إلى تنين عملاق 
+                                يهدد القرى الآمنة. بذكائه وشجاعته، تمكن الأمير من هزيمة الساحرة وإنقاذ شعبه من شرها.
+                            </p>
+                            <div class="moral-lesson">
+                                <strong><i class="fas fa-lightbulb me-2"></i>العبرة:</strong>
+                                الشجاعة والذكاء يغلبان القوة الغاشمة
+                            </div>
+                            <div class="story-tags">
+                                <span class="story-tag">بطولة</span>
+                                <span class="story-tag">مملكة سبأ</span>
+                                <span class="story-tag">تراث قديم</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Story 2: حكاية الراعي الحكيم -->
+                <div class="col-lg-6 col-xl-4 mb-4 story-item fade-in" data-category="wisdom">
+                    <div class="story-card">
+                        <div class="story-header">
+                            <div class="story-category">حكايات الحكمة</div>
+                            <h3 class="story-title">الراعي الحكيم وكنز الجبل</h3>
+                        </div>
+                        <div class="story-body">
+                            <p class="story-excerpt">
+                                راعٍ بسيط في جبال اليمن اكتشف كنزاً ثميناً، لكنه لم يأخذ منه شيئاً. عندما سأله الناس عن السبب، 
+                                قال: "الكنز الحقيقي هو القناعة والرضا بما قسم الله لك".
+                            </p>
+                            <div class="moral-lesson">
+                                <strong><i class="fas fa-lightbulb me-2"></i>العبرة:</strong>
+                                القناعة كنز لا يفنى
+                            </div>
+                            <div class="story-tags">
+                                <span class="story-tag">حكمة</span>
+                                <span class="story-tag">جبال اليمن</span>
+                                <span class="story-tag">قناعة</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Story 3: حكاية وريقة الحناء -->
+                <div class="col-lg-6 col-xl-4 mb-4 story-item fade-in" data-category="love">
+                    <div class="story-card">
+                        <div class="story-header">
+                            <div class="story-category">حكايات الحب</div>
+                            <h3 class="story-title">وريقة الحناء</h3>
+                        </div>
+                        <div class="story-body">
+                            <p class="story-excerpt">
+                                فتاة يمنية جميلة تُدعى وريقة، عاشت مع زوجة أبيها القاسية بعد وفاة والدتها. رغم المعاملة السيئة، 
+                                بقيت وريقة طيبة القلب حتى جاء الأمير وأحبها لجمال قلبها قبل وجهها.
+                            </p>
+                            <div class="moral-lesson">
+                                <strong><i class="fas fa-lightbulb me-2"></i>العبرة:</strong>
+                                الصبر والطيبة لهما عاقبة حسنة
+                            </div>
+                            <div class="story-tags">
+                                <span class="story-tag">حب</span>
+                                <span class="story-tag">صبر</span>
+                                <span class="story-tag">تراث شعبي</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Story 4: حكاية التاجر والجني -->
+                <div class="col-lg-6 col-xl-4 mb-4 story-item fade-in" data-category="moral">
+                    <div class="story-card">
+                        <div class="story-header">
+                            <div class="story-category">حكايات أخلاقية</div>
+                            <h3 class="story-title">التاجر الأمين والجني</h3>
+                        </div>
+                        <div class="story-body">
+                            <p class="story-excerpt">
+                                تاجر أمين من صنعاء وجد كيساً مليئاً بالذهب، فبحث عن صاحبه حتى وجده. تبين أن الكيس للجني 
+                                الذي أراد أن يختبر أمانة الناس، فكافأ التاجر بثروة عظيمة.
+                            </p>
+                            <div class="moral-lesson">
+                                <strong><i class="fas fa-lightbulb me-2"></i>العبرة:</strong>
+                                الأمانة تجلب البركة والخير
+                            </div>
+                            <div class="story-tags">
+                                <span class="story-tag">أمانة</span>
+                                <span class="story-tag">صنعاء</span>
+                                <span class="story-tag">أخلاق</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Story 5: حكاية القط المكار -->
+                <div class="col-lg-6 col-xl-4 mb-4 story-item fade-in" data-category="funny">
+                    <div class="story-card">
+                        <div class="story-header">
+                            <div class="story-category">حكايات طريفة</div>
+                            <h3 class="story-title">القط المكار ونحلة العسل</h3>
+                        </div>
+                        <div class="story-body">
+                            <p class="story-excerpt">
+                                قط مكار أراد أن يسرق العسل من خلية النحل، فتنكر في زي نحلة. لكن النحل اكتشف أمره 
+                                وطاردوه في كل مكان حتى تعلم أن المكر لا يفيد.
+                            </p>
+                            <div class="moral-lesson">
+                                <strong><i class="fas fa-lightbulb me-2"></i>العبرة:</strong>
+                                المكر والخداع لهما عاقبة سيئة
+                            </div>
+                            <div class="story-tags">
+                                <span class="story-tag">طرافة</span>
+                                <span class="story-tag">حيوانات</span>
+                                <span class="story-tag">تعليمية</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Story 6: حكاية بناة سد مأرب -->
+                <div class="col-lg-6 col-xl-4 mb-4 story-item fade-in" data-category="hero">
+                    <div class="story-card">
+                        <div class="story-header">
+                            <div class="story-category">حكايات البطولة</div>
+                            <h3 class="story-title">بناة سد مأرب العظيم</h3>
+                        </div>
+                        <div class="story-body">
+                            <p class="story-excerpt">
+                                حكاية البناة الأوائل لسد مأرب العظيم، الذين واجهوا تحديات جبلية وعواصف رملية قاسية. 
+                                بإصرارهم وعملهم الجماعي بنوا أعظم إنجاز هندسي في التاريخ القديم.
+                            </p>
+                            <div class="moral-lesson">
+                                <strong><i class="fas fa-lightbulb me-2"></i>العبرة:</strong>
+                                العمل الجماعي والإصرار يحققان المستحيل
+                            </div>
+                            <div class="story-tags">
+                                <span class="story-tag">سد مأرب</span>
+                                <span class="story-tag">إنجاز</span>
+                                <span class="story-tag">تعاون</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta-section py-5" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white;">
+        <div class="container text-center">
+            <h2 class="mb-4" style="font-family: 'Amiri', serif;">هل تعرف حكايات تراثية أخرى؟</h2>
+            <p class="lead mb-4">ساعدنا في حفظ التراث الشعبي اليمني من النسيان</p>
+            <a href="contact.html" class="btn btn-light btn-lg px-5">شاركنا حكاياتك</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-section bg-dark text-light py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 style="font-family: 'Amiri', serif; color: #007bff;">تاريخ اليمن</h5>
+                    <p>منصة تعليمية لاستكشاف التاريخ اليمني العريق والتراث الثقافي الأصيل</p>
+                </div>
+                <div class="col-md-6">
+                    <h6>روابط سريعة</h6>
+                    <div class="row">
+                        <div class="col-6">
+                            <ul class="list-unstyled">
+                                <li><a href="home-fast.html" class="text-light text-decoration-none">الرئيسية</a></li>
+                                <li><a href="gallery.html" class="text-light text-decoration-none">معرض الصور</a></li>
+                                <li><a href="timeline.html" class="text-light text-decoration-none">الخط الزمني</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <ul class="list-unstyled">
+                                <li><a href="figures.html" class="text-light text-decoration-none">الشخصيات</a></li>
+                                <li><a href="offers.html" class="text-light text-decoration-none">التراث</a></li>
+                                <li><a href="contact.html" class="text-light text-decoration-none">تواصل معنا</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <p>&copy; 2024 جميع الحقوق محفوظة. مشروع تعليمي لأغراض التعلم والتدريس.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        // Filter functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const storyItems = document.querySelectorAll('.story-item');
+            
+            // Fade in animation for stories
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('show');
+                    }
+                });
+            }, observerOptions);
+            
+            storyItems.forEach(item => {
+                observer.observe(item);
+            });
+            
+            // Filter button functionality
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const filter = this.getAttribute('data-filter');
+                    
+                    // Update active button
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filter stories
+                    storyItems.forEach(item => {
+                        const category = item.getAttribute('data-category');
+                        
+                        if (filter === 'all' || category === filter) {
+                            item.style.display = 'block';
+                            setTimeout(() => {
+                                item.classList.add('show');
+                            }, 100);
+                        } else {
+                            item.classList.remove('show');
+                            setTimeout(() => {
+                                item.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+            
+            // Initially show all stories
+            setTimeout(() => {
+                storyItems.forEach(item => {
+                    item.classList.add('show');
+                });
+            }, 100);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الخط الزمني التاريخي - تاريخ اليمن</title>
+    
+    <!-- Google Fonts للخطوط العربية -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 50%;
+            transform: translateX(50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, #e74c3c, #c0392b);
+            border-radius: 2px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin: 40px 0;
+            width: 50%;
+            padding: 20px;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            margin-right: 50%;
+            text-align: left;
+        }
+        
+        .timeline-item:nth-child(even) {
+            margin-left: 50%;
+            text-align: right;
+        }
+        
+        .timeline-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .timeline-date {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: 'Cairo', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-align: center;
+            border: 5px solid white;
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-date {
+            left: -60px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-date {
+            right: -60px;
+        }
+        
+        .timeline-content h3 {
+            font-family: 'Amiri', serif;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .timeline-content p {
+            font-family: 'Cairo', sans-serif;
+            color: #7f8c8d;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .timeline-achievements {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .timeline-achievements li {
+            font-family: 'Cairo', sans-serif;
+            color: #34495e;
+            margin-bottom: 8px;
+            position: relative;
+            padding-right: 20px;
+        }
+        
+        .timeline-achievements li::before {
+            content: '✓';
+            position: absolute;
+            right: 0;
+            color: #27ae60;
+            font-weight: bold;
+        }
+        
+        .hero-timeline {
+            background: linear-gradient(135deg, #8e44ad 0%, #9b59b6 100%);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero-timeline h1 {
+            font-family: 'Amiri', serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero-timeline p {
+            font-family: 'Cairo', sans-serif;
+            font-size: 1.3rem;
+            opacity: 0.9;
+        }
+        
+        .timeline-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        
+        @media (max-width: 768px) {
+            .timeline::before {
+                right: 30px;
+                transform: none;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                margin-right: 0 !important;
+                margin-left: 0 !important;
+                text-align: right !important;
+                padding-right: 70px;
+            }
+            
+            .timeline-date {
+                right: -60px !important;
+                left: auto !important;
+                width: 80px;
+                height: 80px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="container">
+            <div class="row align-items-center py-3">
+                <div class="col-md-3">
+                    <h2 class="logo"><i class="fas fa-landmark"></i> تاريخ اليمن</h2>
+                </div>
+                <div class="col-md-9">
+                    <div class="header-info d-flex justify-content-end">
+                        <div class="info-item me-4">
+                            <i class="fas fa-phone"></i>
+                            <span>+967 1 234567</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>info@yemenhistory.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.html"><i class="fas fa-home"></i> الرئيسية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="destinations.html">الحقب التاريخية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery.html"><i class="fas fa-images"></i> معرض الصور</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="timeline.html"><i class="fas fa-history"></i> الخط الزمني</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="offers.html">الثقافة والتراث</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html"><i class="fas fa-envelope"></i> اتصل بنا</a>
+                    </li>
+                    <li class="nav-item ms-3">
+                        <a class="nav-link btn btn-outline-light px-3" href="index.html">تسجيل الدخول</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-timeline">
+        <div class="container">
+            <h1>الخط الزمني التاريخي</h1>
+            <p>رحلة عبر آلاف السنين من التاريخ اليمني العريق</p>
+        </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="py-5">
+        <div class="container">
+            <div class="timeline">
+                
+                <!-- Ancient Kingdoms -->
+                <div class="timeline-item">
+                    <div class="timeline-date">
+                        القرن 10<br>ق.م
+                    </div>
+                    <div class="timeline-card">
+                        <img src="images/مملكة سبأ - تاريخ اليمن (ممالك اليمن القديم).jpeg" alt="مملكة سبأ" class="timeline-image">
+                        <div class="timeline-content">
+                            <h3>مملكة سبأ العظيمة</h3>
+                            <p>أعظم الممالك اليمنية القديمة، حكمتها الملكة بلقيس الشهيرة. ازدهرت بتجارة البخور والعطور والذهب، وبنت سد مأرب العظيم.</p>
+                            <ul class="timeline-achievements">
+                                <li>بناء سد مأرب - أعجوبة الري القديم</li>
+                                <li>تجارة البخور مع الإمبراطوريات القديمة</li>
+                                <li>الحضارة والفنون والعمارة المتقدمة</li>
+                                <li>النظام السياسي والإداري المتطور</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Himyarite Kingdom -->
+                <div class="timeline-item">
+                    <div class="timeline-date">
+                        القرن 1-6<br>م
+                    </div>
+                    <div class="timeline-card">
+                        <img src="images/أحد ازقة مدينة صنعاء القديمة - اليمن.jpeg" alt="الحضارة الحميرية" class="timeline-image">
+                        <div class="timeline-content">
+                            <h3>المملكة الحميرية</h3>
+                            <p>آخر الممالك اليمنية الكبرى قبل الإسلام. امتدت من نجران شمالاً إلى ظفار جنوباً، وشهدت ازدهاراً في التجارة والزراعة.</p>
+                            <ul class="timeline-achievements">
+                                <li>توحيد معظم أراضي اليمن تحت حكم واحد</li>
+                                <li>ازدهار التجارة البحرية والبرية</li>
+                                <li>تطوير الزراعة والري</li>
+                                <li>التبادل الثقافي مع الحضارات المجاورة</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Islamic Era -->
+                <div class="timeline-item">
+                    <div class="timeline-date">
+                        القرن 7<br>م
+                    </div>
+                    <div class="timeline-card">
+                        <img src="images/صنعاء القديمة اليمن Old Sana'a Yemen 🇾🇪.jpeg" alt="الفتح الإسلامي" class="timeline-image">
+                        <div class="timeline-content">
+                            <h3>دخول الإسلام إلى اليمن</h3>
+                            <p>دخل الإسلام اليمن سلمياً في عهد النبي محمد صلى الله عليه وسلم. أصبح اليمن جزءاً من الدولة الإسلامية وشهد نهضة علمية وثقافية.</p>
+                            <ul class="timeline-achievements">
+                                <li>دخول الإسلام سلمياً دون حروب</li>
+                                <li>انتشار العلم والثقافة الإسلامية</li>
+                                <li>بناء المساجد والمدارس</li>
+                                <li>ازدهار الحرف والصناعات</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rasulid Dynasty -->
+                <div class="timeline-item">
+                    <div class="timeline-date">
+                        1229-1454<br>م
+                    </div>
+                    <div class="timeline-card">
+                        <img src="images/جسر شهارة _ عدسة _ معاذ الشعيبي.jpeg" alt="الدولة الرسولية" class="timeline-image">
+                        <div class="timeline-content">
+                            <h3>الدولة الرسولية</h3>
+                            <p>من أزهى العصور في التاريخ اليمني الإسلامي. شهدت ازدهاراً في العلوم والفنون والعمارة، وبُنيت فيها العديد من المعالم المعمارية الرائعة.</p>
+                            <ul class="timeline-achievements">
+                                <li>عصر ذهبي للعلوم والمعرفة</li>
+                                <li>بناء المدارس والمستشفيات</li>
+                                <li>ازدهار التجارة مع الهند وأفريقيا</li>
+                                <li>تطوير الفنون والحرف اليدوية</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ottoman Period -->
+                <div class="timeline-item">
+                    <div class="timeline-date">
+                        1517-1918<br>م
+                    </div>
+                    <div class="timeline-card">
+                        <img src="images/52f39eef-c7b1-43a0-8db3-489e89306186.jpeg" alt="العهد العثماني" class="timeline-image">
+                        <div class="timeline-content">
+                            <h3>العهد العثماني</h3>
+                            <p>فترة الحكم العثماني في اليمن، تخللتها فترات من الحكم المحلي. شهدت مقاومة شعبية وحفاظاً على الهوية اليمنية رغم التأثيرات الخارجية.</p>
+                            <ul class="timeline-achievements">
+                                <li>مقاومة الحكم الأجنبي والحفاظ على الهوية</li>
+                                <li>استمرار التقاليد والثقافة المحلية</li>
+                                <li>تطوير أساليب الزراعة الجبلية</li>
+                                <li>الحفاظ على الحرف التراثية</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modern Yemen -->
+                <div class="timeline-item">
+                    <div class="timeline-date">
+                        1962<br>م
+                    </div>
+                    <div class="timeline-card">
+                        <img src="images/باب اليمن - صنعاء عام 1987م_.jpeg" alt="الجمهورية اليمنية" class="timeline-image">
+                        <div class="timeline-content">
+                            <h3>قيام الجمهورية العربية اليمنية</h3>
+                            <p>ثورة 26 سبتمبر 1962 وإعلان الجمهورية العربية اليمنية. بداية عصر جديد من التحديث والتطوير في شمال اليمن.</p>
+                            <ul class="timeline-achievements">
+                                <li>إنهاء النظام الإمامي وإعلان الجمهورية</li>
+                                <li>بناء المؤسسات الحديثة للدولة</li>
+                                <li>تطوير التعليم والصحة</li>
+                                <li>بناء الطرق والبنية التحتية</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Unification -->
+                <div class="timeline-item">
+                    <div class="timeline-date">
+                        1990<br>م
+                    </div>
+                    <div class="timeline-card">
+                        <img src="images/اجمل الصورة الطبيعة لليمن وريف اليمن.jpeg" alt="الوحدة اليمنية" class="timeline-image">
+                        <div class="timeline-content">
+                            <h3>الوحدة اليمنية</h3>
+                            <p>توحيد الشطرين الشمالي والجنوبي في دولة واحدة هي الجمهورية اليمنية. حلم تاريخي تحقق بعد عقود من الانقسام.</p>
+                            <ul class="timeline-achievements">
+                                <li>توحيد شطري اليمن في دولة واحدة</li>
+                                <li>إقامة نظام ديمقراطي تعددي</li>
+                                <li>تطوير الاقتصاد الوطني الموحد</li>
+                                <li>تعزيز الهوية الوطنية اليمنية</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>تاريخ اليمن</h5>
+                    <p>رحلة عبر التاريخ اليمني العريق من أقدم الحضارات إلى العصر الحديث.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>الحقب التاريخية</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white-50">الممالك القديمة</a></li>
+                        <li><a href="#" class="text-white-50">العصر الإسلامي</a></li>
+                        <li><a href="#" class="text-white-50">العصر الحديث</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>روابط سريعة</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="home.html" class="text-white-50">الرئيسية</a></li>
+                        <li><a href="gallery.html" class="text-white-50">معرض الصور</a></li>
+                        <li><a href="contact.html" class="text-white-50">اتصل بنا</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p>&copy; 2024 تاريخ اليمن. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Animate timeline items on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            timelineItems.forEach(item => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(50px)';
+                item.style.transition = 'all 0.6s ease-out';
+                observer.observe(item);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الشخصيات التاريخية - تاريخ اليمن</title>
+    
+    <!-- Google Fonts للخطوط العربية -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        .hero-figures {
+            background: linear-gradient(135deg, #2980b9 0%, #3498db 100%);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero-figures h1 {
+            font-family: 'Amiri', serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .figure-card {
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+            background: white;
+        }
+        
+        .figure-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+        
+        .figure-image {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            margin: -75px auto 20px;
+        }
+        
+        .figure-name {
+            font-family: 'Amiri', serif;
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .figure-title {
+            color: #e74c3c;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .figure-period {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        
+        .achievements-list {
+            list-style: none;
+            padding: 0;
+            text-align: right;
+        }
+        
+        .achievements-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #ecf0f1;
+            position: relative;
+            padding-right: 25px;
+        }
+        
+        .achievements-list li::before {
+            content: '★';
+            color: #f39c12;
+            position: absolute;
+            right: 0;
+            font-weight: bold;
+        }
+        
+        .achievements-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .category-filter {
+            background: linear-gradient(135deg, #9b59b6, #8e44ad);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            margin: 5px;
+            font-family: 'Cairo', sans-serif;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .category-filter:hover, .category-filter.active {
+            background: linear-gradient(135deg, #8e44ad, #9b59b6);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(142, 68, 173, 0.4);
+        }
+        
+        .stats-section {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 60px 0;
+            margin: 50px 0;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #3498db;
+        }
+        
+        .stat-label {
+            font-family: 'Cairo', sans-serif;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="container">
+            <div class="row align-items-center py-3">
+                <div class="col-md-3">
+                    <h2 class="logo"><i class="fas fa-landmark"></i> تاريخ اليمن</h2>
+                </div>
+                <div class="col-md-9">
+                    <div class="header-info d-flex justify-content-end">
+                        <div class="info-item me-4">
+                            <i class="fas fa-phone"></i>
+                            <span>+967 1 234567</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>info@yemenhistory.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.html"><i class="fas fa-home"></i> الرئيسية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="destinations.html">الحقب التاريخية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery.html"><i class="fas fa-images"></i> معرض الصور</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="timeline.html"><i class="fas fa-history"></i> الخط الزمني</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="figures.html"><i class="fas fa-users"></i> الشخصيات التاريخية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="offers.html">الثقافة والتراث</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html"><i class="fas fa-envelope"></i> اتصل بنا</a>
+                    </li>
+                    <li class="nav-item ms-3">
+                        <a class="nav-link btn btn-outline-light px-3" href="index.html">تسجيل الدخول</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-figures">
+        <div class="container">
+            <h1>الشخصيات التاريخية اليمنية</h1>
+            <p class="lead">أبرز الشخصيات التي صنعت تاريخ اليمن عبر العصور</p>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="stat-item">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">ملوك وملكات</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">علماء ومفكرون</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="stat-item">
+                        <div class="stat-number">3000+</div>
+                        <div class="stat-label">سنة من التاريخ</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="py-4 bg-light">
+        <div class="container text-center">
+            <h3 class="mb-4" style="font-family: 'Amiri', serif; color: #2c3e50;">تصفح حسب الفترة التاريخية</h3>
+            <button class="category-filter active" data-category="all">جميع الشخصيات</button>
+            <button class="category-filter" data-category="ancient">الممالك القديمة</button>
+            <button class="category-filter" data-category="islamic">العصر الإسلامي</button>
+            <button class="category-filter" data-category="modern">العصر الحديث</button>
+            <button class="category-filter" data-category="scholars">العلماء والمفكرون</button>
+        </div>
+    </section>
+
+    <!-- Historical Figures -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row" id="figuresContainer">
+                
+                <!-- Queen Bilqis -->
+                <div class="col-lg-4 col-md-6 mb-4 figure-item" data-category="ancient">
+                    <div class="figure-card">
+                        <div class="card-body text-center" style="padding-top: 100px;">
+                            <img src="images/مملكة سبأ - تاريخ اليمن (ممالك اليمن القديم).jpeg" alt="الملكة بلقيس" class="figure-image">
+                            <h4 class="figure-name">الملكة بلقيس</h4>
+                            <p class="figure-title">ملكة سبأ العظيمة</p>
+                            <span class="figure-period">القرن العاشر ق.م</span>
+                            <p class="mt-3" style="font-family: 'Cairo', sans-serif; line-height: 1.8;">
+                                أشهر ملكات اليمن القديم، حكمت مملكة سبأ وعُرفت بحكمتها وثرائها العظيم.
+                            </p>
+                            <ul class="achievements-list mt-3">
+                                <li>بناء سد مأرب العظيم</li>
+                                <li>ازدهار تجارة البخور والعطور</li>
+                                <li>العلاقات الدولية مع الممالك المجاورة</li>
+                                <li>تطوير الفنون والعمارة</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Imam Ali al-Hadi -->
+                <div class="col-lg-4 col-md-6 mb-4 figure-item" data-category="islamic">
+                    <div class="figure-card">
+                        <div class="card-body text-center" style="padding-top: 100px;">
+                            <img src="images/أحد ازقة مدينة صنعاء القديمة - اليمن.jpeg" alt="الإمام الهادي" class="figure-image">
+                            <h4 class="figure-name">الإمام الهادي إلى الحق</h4>
+                            <p class="figure-title">مؤسس الدولة الزيدية</p>
+                            <span class="figure-period">897-911 م</span>
+                            <p class="mt-3" style="font-family: 'Cairo', sans-serif; line-height: 1.8;">
+                                يحيى بن الحسين الرسي، مؤسس الدولة الزيدية في اليمن وأحد أعظم الأئمة.
+                            </p>
+                            <ul class="achievements-list mt-3">
+                                <li>تأسيس الدولة الزيدية</li>
+                                <li>نشر العلم والعدالة</li>
+                                <li>توحيد القبائل اليمنية</li>
+                                <li>بناء المساجد والمدارس</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ibn al-Mujawir -->
+                <div class="col-lg-4 col-md-6 mb-4 figure-item" data-category="scholars">
+                    <div class="figure-card">
+                        <div class="card-body text-center" style="padding-top: 100px;">
+                            <img src="images/صنعاء القديمة اليمن Old Sana'a Yemen 🇾🇪.jpeg" alt="ابن المجاور" class="figure-image">
+                            <h4 class="figure-name">ابن المجاور</h4>
+                            <p class="figure-title">المؤرخ والجغرافي</p>
+                            <span class="figure-period">القرن السابع الهجري</span>
+                            <p class="mt-3" style="font-family: 'Cairo', sans-serif; line-height: 1.8;">
+                                جمال الدين أبو الفتح يوسف، مؤرخ وجغرافي يمني، صاحب كتاب "تاريخ المستبصر".
+                            </p>
+                            <ul class="achievements-list mt-3">
+                                <li>تأليف "تاريخ المستبصر"</li>
+                                <li>وصف مدن وموانئ اليمن</li>
+                                <li>توثيق الجغرافيا اليمنية</li>
+                                <li>المساهمة في الأدب التاريخي</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ahmad Iman -->
+                <div class="col-lg-4 col-md-6 mb-4 figure-item" data-category="modern">
+                    <div class="figure-card">
+                        <div class="card-body text-center" style="padding-top: 100px;">
+                            <img src="images/باب اليمن - صنعاء عام 1987م_.jpeg" alt="أحمد محمد نعمان" class="figure-image">
+                            <h4 class="figure-name">أحمد محمد نعمان</h4>
+                            <p class="figure-title">رائد النهضة اليمنية</p>
+                            <span class="figure-period">1909-1996 م</span>
+                            <p class="mt-3" style="font-family: 'Cairo', sans-serif; line-height: 1.8;">
+                                سياسي ومفكر يمني، أحد رواد النهضة والتحديث في اليمن الحديث.
+                            </p>
+                            <ul class="achievements-list mt-3">
+                                <li>رائد الحركة الدستورية</li>
+                                <li>النضال من أجل التعليم</li>
+                                <li>تأسيس الأحزاب السياسية</li>
+                                <li>المساهمة في بناء اليمن الحديث</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Al-Hasan al-Hamdani -->
+                <div class="col-lg-4 col-md-6 mb-4 figure-item" data-category="scholars">
+                    <div class="figure-card">
+                        <div class="card-body text-center" style="padding-top: 100px;">
+                            <img src="images/جسر شهارة _ عدسة _ معاذ الشعيبي.jpeg" alt="الهمداني" class="figure-image">
+                            <h4 class="figure-name">الحسن الهمداني</h4>
+                            <p class="figure-title">لسان اليمن</p>
+                            <span class="figure-period">893-945 م</span>
+                            <p class="mt-3" style="font-family: 'Cairo', sans-serif; line-height: 1.8;">
+                                أبو محمد الحسن بن أحمد الهمداني، الجغرافي والمؤرخ والشاعر، لُقب بـ"لسان اليمن".
+                            </p>
+                            <ul class="achievements-list mt-3">
+                                <li>تأليف "صفة جزيرة العرب"</li>
+                                <li>كتابة "الإكليل" في التاريخ</li>
+                                <li>وصف جغرافية اليمن</li>
+                                <li>الشعر والأدب اليمني</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ibrahim al-Hamdi -->
+                <div class="col-lg-4 col-md-6 mb-4 figure-item" data-category="modern">
+                    <div class="figure-card">
+                        <div class="card-body text-center" style="padding-top: 100px;">
+                            <img src="images/اجمل الصورة الطبيعة لليمن وريف اليمن.jpeg" alt="إبراهيم الحمدي" class="figure-image">
+                            <h4 class="figure-name">إبراهيم الحمدي</h4>
+                            <p class="figure-title">رئيس الجمهورية العربية اليمنية</p>
+                            <span class="figure-period">1974-1977 م</span>
+                            <p class="mt-3" style="font-family: 'Cairo', sans-serif; line-height: 1.8;">
+                                ضابط وسياسي يمني، قاد حركة تصحيحية وعمل على تطوير اليمن الشمالي.
+                            </p>
+                            <ul class="achievements-list mt-3">
+                                <li>الحركة التصحيحية</li>
+                                <li>تطوير التعليم والصحة</li>
+                                <li>مشاريع التنمية الريفية</li>
+                                <li>تعزيز الوحدة الوطنية</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>الشخصيات التاريخية</h5>
+                    <p>تعرف على أبرز الشخصيات التي صنعت تاريخ اليمن العريق عبر العصور.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>الفترات التاريخية</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white-50">الممالك القديمة</a></li>
+                        <li><a href="#" class="text-white-50">العصر الإسلامي</a></li>
+                        <li><a href="#" class="text-white-50">العصر الحديث</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>روابط سريعة</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="home.html" class="text-white-50">الرئيسية</a></li>
+                        <li><a href="timeline.html" class="text-white-50">الخط الزمني</a></li>
+                        <li><a href="gallery.html" class="text-white-50">معرض الصور</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p>&copy; 2024 تاريخ اليمن. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Filter functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.category-filter');
+            const figureItems = document.querySelectorAll('.figure-item');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+
+                    const category = this.getAttribute('data-category');
+
+                    figureItems.forEach(item => {
+                        if (category === 'all' || item.getAttribute('data-category') === category) {
+                            item.style.display = 'block';
+                            item.style.animation = 'fadeInUp 0.6s ease-out';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Add animation styles
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes fadeInUp {
+                    from {
+                        opacity: 0;
+                        transform: translateY(30px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        });
+    </script>
+</body>
+</html>

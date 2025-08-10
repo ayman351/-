@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تاريخ اليمن - الحضارة اليمنية العريقة</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            direction: rtl;
+            text-align: right;
+        }
+        
+        .logo {
+            font-family: 'Amiri', serif;
+            font-weight: 700;
+            color: #007bff;
+            margin: 0;
+            font-size: 1.8rem;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .hero-section h1 {
+            font-family: 'Amiri', serif;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .card {
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+        }
+        
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover .card-img-top {
+            transform: scale(1.05);
+        }
+        
+        .card-title {
+            font-family: 'Amiri', serif;
+            font-weight: 700;
+            color: #343a40;
+        }
+        
+        /* Lazy loading style */
+        .lazy {
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .lazy-loaded {
+            opacity: 1;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+            .hero-section {
+                padding: 2rem 0;
+                min-height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="container">
+            <div class="row align-items-center py-3">
+                <div class="col-md-3">
+                    <h2 class="logo"><i class="fas fa-landmark"></i> تاريخ اليمن</h2>
+                </div>
+                <div class="col-md-9">
+                    <div class="d-flex justify-content-end">
+                        <div class="me-4">
+                            <i class="fas fa-phone"></i>
+                            <span>+967 1 234567</span>
+                        </div>
+                        <div>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@yemenhistory.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="home-fast.html"><i class="fas fa-home"></i> الرئيسية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="destinations.html">الحقب التاريخية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="folk-arts.html">
+                            <i class="fas fa-music me-1"></i>الفنون الشعبية
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="customs.html">
+                            <i class="fas fa-users me-1"></i>العادات والتقاليد
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">
+                            <i class="fas fa-envelope me-1"></i>تواصل معنا
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="figures.html"><i class="fas fa-users"></i> الشخصيات التاريخية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="offers.html">الثقافة والتراث</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html"><i class="fas fa-envelope"></i> اتصل بنا</a>
+                    </li>
+                    <li class="nav-item ms-3">
+                        <a class="nav-link btn btn-outline-light px-3" href="index.html">تسجيل الدخول</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-4">مرحباً بكم في تاريخ اليمن العريق</h1>
+            <p class="lead mb-4">استكشفوا آلاف السنين من الحضارة والتاريخ اليمني الأصيل</p>
+            <a href="timeline.html" class="btn btn-light btn-lg me-3">
+                <i class="fas fa-history"></i> الخط الزمني التاريخي
+            </a>
+            <a href="gallery.html" class="btn btn-outline-light btn-lg">
+                <i class="fas fa-images"></i> معرض الصور
+            </a>
+        </div>
+    </section>
+
+    <!-- Historical Periods Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5" style="font-family: 'Amiri', serif; color: #2c3e50;">الحقب التاريخية اليمنية</h2>
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="card h-100">
+                        <img src="images/مملكة سبأ - تاريخ اليمن (ممالك اليمن القديم).jpeg" 
+                             class="card-img-top" 
+                             alt="مملكة سبأ"
+                             loading="lazy">
+                        <div class="card-body">
+                            <h5 class="card-title">مملكة سبأ العظيمة</h5>
+                            <p class="card-text">أعظم الممالك اليمنية القديمة، مهد الحضارة وموطن الملكة بلقيس الشهيرة. ازدهرت بتجارة البخور والعطور والذهب.</p>
+                            <div class="mt-3">
+                                <small class="text-muted">
+                                    <i class="fas fa-calendar-alt"></i> القرن العاشر قبل الميلاد
+                                </small>
+                            </div>
+                            <a href="destinations.html" class="btn btn-primary mt-3">
+                                <i class="fas fa-book-open"></i> اكتشف المزيد
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mb-4">
+                    <div class="card h-100">
+                        <img src="images/باب اليمن - صنعاء عام 1987م_.jpeg" 
+                             class="card-img-top" 
+                             alt="اليمن في الثمانينات"
+                             loading="lazy">
+                        <div class="card-body">
+                            <h5 class="card-title">اليمن الحديث - الثمانينات</h5>
+                            <p class="card-text">لمحة من تاريخ اليمن الحديث في الثمانينات، حيث نشهد التطور والنهضة العمرانية في العاصمة صنعاء.</p>
+                            <div class="mt-3">
+                                <small class="text-muted">
+                                    <i class="fas fa-camera"></i> صنعاء عام 1987م
+                                </small>
+                            </div>
+                            <a href="timeline.html" class="btn btn-primary mt-3">
+                                <i class="fas fa-clock"></i> الخط الزمني
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mb-4">
+                    <div class="card h-100">
+                        <img src="images/بالصور التراث اليمني ازياء وملابس يمنية 2020.jpeg" 
+                             class="card-img-top" 
+                             alt="التراث اليمني"
+                             loading="lazy">
+                        <div class="card-body">
+                            <h5 class="card-title">التراث والثقافة اليمنية</h5>
+                            <p class="card-text">تنوع وجمال التراث الشعبي اليمني الأصيل، من الأزياء التقليدية إلى الحرف والفنون الشعبية.</p>
+                            <div class="mt-3">
+                                <small class="text-muted">
+                                    <i class="fas fa-heart"></i> تراث أصيل ومتنوع
+                                </small>
+                            </div>
+                            <a href="offers.html" class="btn btn-primary mt-3">
+                                <i class="fas fa-palette"></i> التراث والثقافة
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Facts Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h3 class="mb-4" style="font-family: 'Amiri', serif; color: #2c3e50;">نبذة عن اليمن التاريخي</h3>
+                    <p class="lead mb-4">اليمن، أرض الحضارات العريقة والتاريخ المجيد، شهدت قيام أعظم الممالك في الشرق الأدنى القديم.</p>
+                    
+                    <div class="row text-center mb-4">
+                        <div class="col-md-4">
+                            <div class="p-3">
+                                <i class="fas fa-crown fa-2x text-primary mb-2"></i>
+                                <h5>15+</h5>
+                                <small>مملكة وحضارة</small>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="p-3">
+                                <i class="fas fa-landmark fa-2x text-success mb-2"></i>
+                                <h5>3000+</h5>
+                                <small>سنة من التاريخ</small>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="p-3">
+                                <i class="fas fa-star fa-2x text-warning mb-2"></i>
+                                <h5>5+</h5>
+                                <small>مواقع تراث عالمي</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="destinations.html" class="btn btn-primary">
+                        <i class="fas fa-book-open"></i> اكتشف المزيد
+                    </a>
+                </div>
+                <div class="col-lg-6">
+                    <img src="images/صنعاء القديمة اليمن Old Sana'a Yemen 🇾🇪.jpeg" 
+                         alt="صنعاء القديمة" 
+                         class="img-fluid rounded shadow"
+                         loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Features Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5" style="font-family: 'Amiri', serif; color: #2c3e50;">اكتشف المزيد من التراث اليمني</h2>
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="card h-100 border-0 shadow">
+                        <div class="card-body text-center p-5">
+                            <div class="mb-4">
+                                <i class="fas fa-book-open fa-4x text-primary"></i>
+                            </div>
+                            <h4 class="card-title" style="font-family: 'Amiri', serif; color: #2c3e50;">الحكايات التراثية</h4>
+                            <p class="card-text">اكتشف كنوز التراث الشعبي اليمني من خلال حكايات خالدة تنقل حكمة الأجداد وتراث الأجيال</p>
+                            <div class="mb-3">
+                                <span class="badge bg-info me-2">حكايات البطولة</span>
+                                <span class="badge bg-success me-2">حكايات الحكمة</span>
+                                <span class="badge bg-warning">قصص طريفة</span>
+                            </div>
+                            <a href="stories.html" class="btn btn-primary btn-lg">
+                                <i class="fas fa-scroll me-2"></i>استكشف الحكايات
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="card h-100 border-0 shadow">
+                        <div class="card-body text-center p-5">
+                            <div class="mb-4">
+                                <i class="fas fa-utensils fa-4x text-danger"></i>
+                            </div>
+                            <h4 class="card-title" style="font-family: 'Amiri', serif; color: #2c3e50;">المطبخ اليمني التراثي</h4>
+                            <p class="card-text">تذوق النكهات الأصيلة من قلب جزيرة العرب واكتشف أسرار الأطباق التقليدية وتقاليد الطعام</p>
+                            <div class="mb-3">
+                                <span class="badge bg-warning me-2">المندي الحضرمي</span>
+                                <span class="badge bg-danger me-2">السلتة الصنعانية</span>
+                                <span class="badge bg-success">بنت الصحن</span>
+                            </div>
+                            <a href="traditional-food.html" class="btn btn-danger btn-lg">
+                                <i class="fas fa-pepper-hot me-2"></i>استكشف المطبخ
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="card h-100 border-0 shadow">
+                        <div class="card-body text-center p-5">
+                            <div class="mb-4">
+                                <i class="fas fa-users fa-4x text-success"></i>
+                            </div>
+                            <h4 class="card-title" style="font-family: 'Amiri', serif; color: #2c3e50;">العادات والتقاليد</h4>
+                            <p class="card-text">تعرف على عادات وتقاليد الشعب اليمني العريقة من الضيافة والزواج إلى الأزياء التراثية</p>
+                            <div class="mb-3">
+                                <span class="badge bg-primary me-2">كرم الضيافة</span>
+                                <span class="badge bg-info me-2">تقاليد الزواج</span>
+                                <span class="badge bg-warning">الأزياء التراثية</span>
+                            </div>
+                            <a href="customs.html" class="btn btn-success btn-lg">
+                                <i class="fas fa-heart me-2"></i>استكشف التقاليد
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="card h-100 border-0 shadow">
+                        <div class="card-body text-center p-5">
+                            <div class="mb-4">
+                                <i class="fas fa-music fa-4x text-warning"></i>
+                            </div>
+                            <h4 class="card-title" style="font-family: 'Amiri', serif; color: #2c3e50;">الفنون الشعبية</h4>
+                            <p class="card-text">اكتشف ثراء الفنون اليمنية من الموسيقى والرقص التراثي إلى الشعر الشعبي</p>
+                            <div class="mb-3">
+                                <span class="badge bg-primary me-2">الغناء الصنعاني</span>
+                                <span class="badge bg-info me-2">رقصة البرع</span>
+                                <span class="badge bg-success">صناعة الجنبية</span>
+                            </div>
+                            <a href="folk-arts.html" class="btn btn-warning btn-lg">
+                                <i class="fas fa-drum me-2"></i>استكشف الفنون
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>تاريخ اليمن</h5>
+                    <p>استكشف تاريخ اليمن العريق وحضارته العظيمة من خلال رحلة تعليمية شاملة.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>الصفحات الرئيسية</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="destinations.html" class="text-white-50">الحقب التاريخية</a></li>
+                        <li><a href="gallery.html" class="text-white-50">معرض الصور</a></li>
+                        <li><a href="timeline.html" class="text-white-50">الخط الزمني</a></li>
+                        <li><a href="figures.html" class="text-white-50">الشخصيات التاريخية</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>روابط سريعة</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="stories.html" class="text-white-50">الحكايات التراثية</a></li>
+                        <li><a href="traditional-food.html" class="text-white-50">المطبخ التراثي</a></li>
+                        <li><a href="folk-arts.html" class="text-white-50">الفنون الشعبية</a></li>
+                        <li><a href="customs.html" class="text-white-50">العادات والتقاليد</a></li>
+                        <li><a href="contact.html" class="text-white-50">اتصل بنا</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p>&copy; 2024 تاريخ اليمن. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Simple Lazy Loading Script -->
+    <script>
+        // Simple lazy loading fallback
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('img[loading="lazy"]');
+            
+            if ('IntersectionObserver' in window) {
+                const imageObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            img.classList.add('lazy-loaded');
+                            observer.unobserve(img);
+                        }
+                    });
+                });
+
+                images.forEach(img => {
+                    img.classList.add('lazy');
+                    imageObserver.observe(img);
+                });
+            } else {
+                // Fallback for older browsers
+                images.forEach(img => {
+                    img.classList.add('lazy-loaded');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

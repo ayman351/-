@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الموسيقى والفنون الشعبية - تاريخ اليمن</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        .hero-arts {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .hero-arts h1 {
+            font-family: 'Amiri', serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .art-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            overflow: hidden;
+            height: 100%;
+        }
+        
+        .art-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+        }
+        
+        .art-header {
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .art-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .art-title {
+            font-family: 'Amiri', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        .art-body {
+            padding: 0 30px 30px 30px;
+        }
+        
+        .art-description {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        .features-list {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+        
+        .feature-icon {
+            color: #28a745;
+            margin-left: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .instruments-section {
+            background: linear-gradient(135deg, #ff9a56 0%, #ff6b6b 100%);
+            color: white;
+            padding: 80px 0;
+            margin: 60px 0;
+        }
+        
+        .instrument-card {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+        
+        .instrument-card:hover {
+            background: rgba(255,255,255,0.25);
+            transform: scale(1.05);
+        }
+        
+        .category-filter {
+            background: #f8f9fa;
+            padding: 40px 0;
+            margin-bottom: 50px;
+        }
+        
+        .category-btn {
+            margin: 8px;
+            border-radius: 30px;
+            padding: 12px 30px;
+            border: 2px solid #667eea;
+            background: white;
+            color: #667eea;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        
+        .category-btn.active {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .fade-in.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="home-fast.html" style="font-family: 'Amiri', serif; font-size: 1.5rem;">
+                <i class="fas fa-landmark me-2"></i>
+                تاريخ اليمن
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="home-fast.html">الرئيسية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="stories.html">الحكايات التراثية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="traditional-food.html">المطبخ التراثي</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="folk-arts.html">الفنون الشعبية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">تواصل معنا</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-arts">
+        <div class="container">
+            <h1>الموسيقى والفنون الشعبية اليمنية</h1>
+            <p class="lead">أنغام أصيلة وفنون تراثية من قلب جزيرة العرب</p>
+            <div class="mt-4">
+                <i class="fas fa-music fa-4x mb-3"></i>
+                <p>تراث فني يعكس روح الشعب اليمني عبر العصور</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Filter -->
+    <section class="category-filter">
+        <div class="container">
+            <div class="text-center">
+                <h3 class="mb-4" style="color: #2c3e50; font-family: 'Amiri', serif;">استكشف الفنون حسب النوع</h3>
+                <div class="category-buttons">
+                    <button class="btn category-btn active" data-category="all">جميع الفنون</button>
+                    <button class="btn category-btn" data-category="music">الموسيقى</button>
+                    <button class="btn category-btn" data-category="dance">الرقصات</button>
+                    <button class="btn category-btn" data-category="poetry">الشعر</button>
+                    <button class="btn category-btn" data-category="crafts">الحرف</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Arts Cards Section -->
+    <section class="arts-section py-5">
+        <div class="container">
+            <div id="arts-container" class="row">
+                
+                <!-- Art 1: Yemeni Folk Music -->
+                <div class="col-lg-6 col-xl-4 mb-4 art-item fade-in" data-category="music">
+                    <div class="art-card">
+                        <div class="art-header">
+                            <i class="fas fa-music art-icon"></i>
+                            <h3 class="art-title">الغناء الصنعاني</h3>
+                        </div>
+                        <div class="art-body">
+                            <p class="art-description">
+                                فن عريق يُعتبر من التراث الثقافي اللامادي للإنسانية حسب اليونيسكو. يتميز بألحانه الشجية 
+                                وكلماته الحمينية التي تمزج بين الفصحى واللهجة المحلية.
+                            </p>
+                            <div class="features-list">
+                                <div class="feature-item">
+                                    <i class="fas fa-check-circle feature-icon"></i>
+                                    <span>معترف به من اليونيسكو</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check-circle feature-icon"></i>
+                                    <span>يُؤدى في الأعراس والمناسبات</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check-circle feature-icon"></i>
+                                    <span>يتناول موضوعات الحب والغزل</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Art 2: Al-Bara Dance -->
+                <div class="col-lg-6 col-xl-4 mb-4 art-item fade-in" data-category="dance">
+                    <div class="art-card">
+                        <div class="art-header">
+                            <i class="fas fa-running art-icon"></i>
+                            <h3 class="art-title">رقصة البرع</h3>
+                        </div>
+                        <div class="art-body">
+                            <p class="art-description">
+                                الرقصة الشعبية الأكثر انتشاراً في اليمن. رقصة حرب تقليدية تُؤدى بالخناجر والأسلحة، 
+                                تختلف أنماطها باختلاف القبائل والمناطق.
+                            </p>
+                            <div class="features-list">
+                                <div class="feature-item">
+                                    <i class="fas fa-check-circle feature-icon"></i>
+                                    <span>رقصة حرب تراثية قديمة</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check-circle feature-icon"></i>
+                                    <span>تُؤدى بالخناجر التقليدية</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check-circle feature-icon"></i>
+                                    <span>تعلم العمل الجماعي</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Art 3: Zamel Poetry -->
+                <div class="col-lg-6 col-xl-4 mb-4 art-item fade-in" data-category="poetry">
+                    <div class="art-card">
+                        <div class="art-header">
+                            <i class="fas fa-scroll art-icon"></i>
+                            <h3 class="art-title">الزامل القبلي</h3>
+                        </div>
+                        <div class="art-body">
+                            <p class="art-description">
+                                نوع من الإنشاد يختص به أبناء القبائل، يُكثر منه أثناء المعارك والحروب. تطور عبر العصور 
+                                ليشمل زوامل الترحيب والرثاء والأعراس.
+                            </p>
+                            <div class="features-list">
+                                <div class="feature-item">
+                                    <i class="fas fa-check-circle feature-icon"></i>
+                                    <span>فن قبلي أصيل</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check-circle feature-icon"></i>
+                                    <span>يُؤدى في المناسبات المختلفة</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check-circle feature-icon"></i>
+                                    <span>يعبر عن هوية القبيلة</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Traditional Instruments Section -->
+    <section class="instruments-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 style="font-family: 'Amiri', serif;">الآلات الموسيقية التراثية</h2>
+                <p class="lead">أدوات الطرب الأصيلة في التراث اليمني</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-3 mb-4">
+                    <div class="instrument-card fade-in">
+                        <i class="fas fa-drum fa-3x mb-3"></i>
+                        <h4>الطبل</h4>
+                        <p>آلة إيقاعية أساسية في الموسيقى اليمنية التقليدية</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 mb-4">
+                    <div class="instrument-card fade-in">
+                        <i class="fas fa-guitar fa-3x mb-3"></i>
+                        <h4>العود</h4>
+                        <p>آلة وترية تُستخدم في الغناء الصنعاني والحضرمي</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 mb-4">
+                    <div class="instrument-card fade-in">
+                        <i class="fas fa-music fa-3x mb-3"></i>
+                        <h4>القانون</h4>
+                        <p>آلة وترية تضفي نغمات رقيقة على الألحان اليمنية</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 mb-4">
+                    <div class="instrument-card fade-in">
+                        <i class="fas fa-compact-disc fa-3x mb-3"></i>
+                        <h4>الرق</h4>
+                        <p>آلة إيقاعية تُستخدم في المناسبات والاحتفالات</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-section bg-dark text-light py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 style="font-family: 'Amiri', serif; color: #667eea;">الفنون الشعبية اليمنية</h5>
+                    <p>اكتشف جمال التراث الفني اليمني من موسيقى ورقصات وحرف تقليدية</p>
+                </div>
+                <div class="col-md-6">
+                    <h6>روابط سريعة</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="home-fast.html" class="text-light text-decoration-none">الرئيسية</a></li>
+                        <li><a href="stories.html" class="text-light text-decoration-none">الحكايات التراثية</a></li>
+                        <li><a href="traditional-food.html" class="text-light text-decoration-none">المطبخ التراثي</a></li>
+                        <li><a href="contact.html" class="text-light text-decoration-none">تواصل معنا</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <p>&copy; 2024 جميع الحقوق محفوظة. مشروع تعليمي لأغراض التعلم والتدريس.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const categoryButtons = document.querySelectorAll('.category-btn');
+            const artItems = document.querySelectorAll('.art-item');
+            
+            // Fade in animation
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('show');
+                    }
+                });
+            }, observerOptions);
+            
+            artItems.forEach(item => {
+                observer.observe(item);
+            });
+            
+            // Category filter functionality
+            categoryButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const category = this.getAttribute('data-category');
+                    
+                    // Update active button
+                    categoryButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filter arts
+                    artItems.forEach(item => {
+                        const itemCategory = item.getAttribute('data-category');
+                        
+                        if (category === 'all' || itemCategory === category) {
+                            item.style.display = 'block';
+                            setTimeout(() => {
+                                item.classList.add('show');
+                            }, 100);
+                        } else {
+                            item.classList.remove('show');
+                            setTimeout(() => {
+                                item.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+            
+            // Initially show all arts
+            setTimeout(() => {
+                artItems.forEach(item => {
+                    item.classList.add('show');
+                });
+            }, 100);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المطبخ اليمني التراثي - تاريخ اليمن</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        .hero-food {
+            background: linear-gradient(135deg, #ff9a56 0%, #ff6b6b 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .hero-food h1 {
+            font-family: 'Amiri', serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .dish-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            height: 100%;
+        }
+        
+        .dish-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        
+        .dish-image {
+            height: 250px;
+            background: linear-gradient(45deg, #ff9a56, #ff6b6b);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+        }
+        
+        .dish-body {
+            padding: 25px;
+        }
+        
+        .dish-title {
+            font-family: 'Amiri', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        .dish-origin {
+            background: #e3f2fd;
+            color: #1565c0;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        
+        .dish-description {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        .ingredients-section {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .ingredients-title {
+            color: #2c3e50;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .ingredient-item {
+            background: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            margin: 3px;
+            font-size: 0.9rem;
+            color: #495057;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .cultural-note {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+        
+        .cultural-note h6 {
+            font-family: 'Amiri', serif;
+            margin-bottom: 10px;
+        }
+        
+        .region-filter {
+            background: #f8f9fa;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+        
+        .region-btn {
+            margin: 5px;
+            border-radius: 25px;
+            padding: 10px 25px;
+            border: 2px solid #ff6b6b;
+            background: white;
+            color: #ff6b6b;
+            transition: all 0.3s ease;
+        }
+        
+        .region-btn.active {
+            background: #ff6b6b;
+            color: white;
+        }
+        
+        .traditions-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 0;
+            margin: 60px 0;
+        }
+        
+        .tradition-card {
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            height: 100%;
+            backdrop-filter: blur(10px);
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .fade-in.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-food h1 {
+                font-size: 2.5rem;
+            }
+            
+            .dish-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background: linear-gradient(135deg, #ff9a56 0%, #ff6b6b 100%);">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="home-fast.html" style="font-family: 'Amiri', serif; font-size: 1.5rem;">
+                <i class="fas fa-landmark me-2"></i>
+                تاريخ اليمن
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="home-fast.html">
+                            <i class="fas fa-home me-1"></i>الرئيسية
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="destinations.html">
+                            <i class="fas fa-clock me-1"></i>الحقب التاريخية
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery.html">
+                            <i class="fas fa-images me-1"></i>معرض الصور
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="stories.html">
+                            <i class="fas fa-book-open me-1"></i>الحكايات التراثية
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="traditional-food.html">
+                            <i class="fas fa-utensils me-1"></i>المطبخ التراثي
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="offers.html">
+                            <i class="fas fa-palette me-1"></i>التراث والثقافة
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">
+                            <i class="fas fa-envelope me-1"></i>تواصل معنا
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-food">
+        <div class="container">
+            <h1>المطبخ اليمني التراثي</h1>
+            <p class="lead">نكهات أصيلة من قلب جزيرة العرب</p>
+            <div class="mt-4">
+                <i class="fas fa-utensils fa-3x mb-3"></i>
+                <p>تذوق تراث الأجداد في كل طبق</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Region Filter -->
+    <section class="region-filter">
+        <div class="container">
+            <div class="text-center">
+                <h3 class="mb-4" style="color: #2c3e50; font-family: 'Amiri', serif;">اكتشف أطباق المناطق اليمنية</h3>
+                <div class="region-buttons">
+                    <button class="btn region-btn active" data-region="all">جميع المناطق</button>
+                    <button class="btn region-btn" data-region="sanaa">صنعاء</button>
+                    <button class="btn region-btn" data-region="hadramout">حضرموت</button>
+                    <button class="btn region-btn" data-region="aden">عدن</button>
+                    <button class="btn region-btn" data-region="taiz">تعز</button>
+                    <button class="btn region-btn" data-region="tihama">تهامة</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dishes Section -->
+    <section class="dishes-section py-5">
+        <div class="container">
+            <div id="dishes-container" class="row">
+                
+                <!-- Dish 1: Mandi -->
+                <div class="col-lg-6 col-xl-4 mb-4 dish-item fade-in" data-region="hadramout">
+                    <div class="dish-card">
+                        <div class="dish-image">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <div class="dish-body">
+                            <div class="dish-origin">حضرموت الأصيل</div>
+                            <h3 class="dish-title">المندي الحضرمي</h3>
+                            <p class="dish-description">
+                                طبق تقليدي حضرمي شهير يتكون من لحم الغنم أو الماعز المشوي في فرن تحت الأرض مع الأرز المعطر بالبهارات. 
+                                انتشر في جميع أنحاء الجزيرة العربية وأصبح رمزاً للضيافة اليمنية.
+                            </p>
+                            <div class="ingredients-section">
+                                <div class="ingredients-title">المكونات الرئيسية:</div>
+                                <span class="ingredient-item">لحم الغنم</span>
+                                <span class="ingredient-item">أرز بسمتي</span>
+                                <span class="ingredient-item">بهارات مشكلة</span>
+                                <span class="ingredient-item">هيل</span>
+                                <span class="ingredient-item">قرفة</span>
+                            </div>
+                            <div class="cultural-note">
+                                <h6><i class="fas fa-star me-2"></i>معلومة تراثية</h6>
+                                <p class="mb-0">يُطبخ المندي في حفرة تحت الأرض تُسمى "التنور" وهي طريقة طبخ تراثية عمرها آلاف السنين</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dish 2: Saltah -->
+                <div class="col-lg-6 col-xl-4 mb-4 dish-item fade-in" data-region="sanaa">
+                    <div class="dish-card">
+                        <div class="dish-image">
+                            <i class="fas fa-bowl-food"></i>
+                        </div>
+                        <div class="dish-body">
+                            <div class="dish-origin">صنعاء العريقة</div>
+                            <h3 class="dish-title">السلتة الصنعانية</h3>
+                            <p class="dish-description">
+                                الطبق الشعبي الأول في اليمن، وهو حساء سميك يُقدم في إناء حجري يُسمى "المدر". 
+                                يتكون من اللحم والخضروات والحلبة والهلبة، ويُقدم ساخناً مع الخبز اليمني.
+                            </p>
+                            <div class="ingredients-section">
+                                <div class="ingredients-title">المكونات الرئيسية:</div>
+                                <span class="ingredient-item">لحم مقطع</span>
+                                <span class="ingredient-item">حلبة</span>
+                                <span class="ingredient-item">هلبة</span>
+                                <span class="ingredient-item">طماطم</span>
+                                <span class="ingredient-item">بصل</span>
+                                <span class="ingredient-item">كزبرة</span>
+                            </div>
+                            <div class="cultural-note">
+                                <h6><i class="fas fa-star me-2"></i>معلومة تراثية</h6>
+                                <p class="mb-0">يُقدم في إناء حجري تقليدي يحافظ على حرارة الطعام ويضفي نكهة خاصة</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dish 3: Fahsa -->
+                <div class="col-lg-6 col-xl-4 mb-4 dish-item fade-in" data-region="sanaa">
+                    <div class="dish-card">
+                        <div class="dish-image">
+                            <i class="fas fa-pepper-hot"></i>
+                        </div>
+                        <div class="dish-body">
+                            <div class="dish-origin">صنعاء الحارة</div>
+                            <h3 class="dish-title">الفحسة الصنعانية</h3>
+                            <p class="dish-description">
+                                طبق لحم حار جداً يُطبخ مع البهارات الحارة والحلبة. يُقدم في المدر الحجري مع رغوة الحلبة، 
+                                وهو من الأطباق المفضلة في الإفطار اليمني التقليدي.
+                            </p>
+                            <div class="ingredients-section">
+                                <div class="ingredients-title">المكونات الرئيسية:</div>
+                                <span class="ingredient-item">لحم ضأن</span>
+                                <span class="ingredient-item">حلبة مطحونة</span>
+                                <span class="ingredient-item">فلفل حار</span>
+                                <span class="ingredient-item">ثوم</span>
+                                <span class="ingredient-item">كمون</span>
+                            </div>
+                            <div class="cultural-note">
+                                <h6><i class="fas fa-star me-2"></i>معلومة تراثية</h6>
+                                <p class="mb-0">يُعتبر من أقدم الأطباق اليمنية ويُقال أنه كان طعام المحاربين لإعطائهم القوة</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dish 4: Zurbian -->
+                <div class="col-lg-6 col-xl-4 mb-4 dish-item fade-in" data-region="hadramout">
+                    <div class="dish-card">
+                        <div class="dish-image">
+                            <i class="fas fa-fish"></i>
+                        </div>
+                        <div class="dish-body">
+                            <div class="dish-origin">ساحل حضرموت</div>
+                            <h3 class="dish-title">الزربيان الحضرمي</h3>
+                            <p class="dish-description">
+                                أرز مطبوخ مع السمك الطازج والبهارات الخاصة، وهو طبق ساحلي أصيل من حضرموت. 
+                                يُطبخ بطريقة خاصة تجعل نكهة السمك تتغلغل في حبات الأرز.
+                            </p>
+                            <div class="ingredients-section">
+                                <div class="ingredients-title">المكونات الرئيسية:</div>
+                                <span class="ingredient-item">سمك طازج</span>
+                                <span class="ingredient-item">أرز بسمتي</span>
+                                <span class="ingredient-item">بهارات السمك</span>
+                                <span class="ingredient-item">زعفران</span>
+                                <span class="ingredient-item">هيل</span>
+                            </div>
+                            <div class="cultural-note">
+                                <h6><i class="fas fa-star me-2"></i>معلومة تراثية</h6>
+                                <p class="mb-0">طبق الصيادين التقليدي في الساحل الحضرمي، يُقدم في المناسبات البحرية</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dish 5: Aseed -->
+                <div class="col-lg-6 col-xl-4 mb-4 dish-item fade-in" data-region="tihama">
+                    <div class="dish-card">
+                        <div class="dish-image">
+                            <i class="fas fa-wheat-awn"></i>
+                        </div>
+                        <div class="dish-body">
+                            <div class="dish-origin">تهامة الساحلية</div>
+                            <h3 class="dish-title">العصيد التهامي</h3>
+                            <p class="dish-description">
+                                طبق تقليدي من دقيق القمح المطبوخ مع الماء والملح، يُقدم مع الحليب المحلى والعسل أو مع المرق واللحم. 
+                                وهو من الأطباق الأساسية في تهامة.
+                            </p>
+                            <div class="ingredients-section">
+                                <div class="ingredients-title">المكونات الرئيسية:</div>
+                                <span class="ingredient-item">دقيق القمح</span>
+                                <span class="ingredient-item">ماء</span>
+                                <span class="ingredient-item">ملح</span>
+                                <span class="ingredient-item">عسل</span>
+                                <span class="ingredient-item">حليب</span>
+                            </div>
+                            <div class="cultural-note">
+                                <h6><i class="fas fa-star me-2"></i>معلومة تراثية</h6>
+                                <p class="mb-0">طبق الفلاحين التقليدي في تهامة، غني بالطاقة ومناسب للعمل الشاق</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dish 6: Bint Al-Sahn -->
+                <div class="col-lg-6 col-xl-4 mb-4 dish-item fade-in" data-region="sanaa">
+                    <div class="dish-card">
+                        <div class="dish-image">
+                            <i class="fas fa-layer-group"></i>
+                        </div>
+                        <div class="dish-body">
+                            <div class="dish-origin">صنعاء الحلوة</div>
+                            <h3 class="dish-title">بنت الصحن</h3>
+                            <p class="dish-description">
+                                حلوى يمنية تقليدية تتكون من طبقات رقيقة من العجين المحلى بالعسل والسمن. 
+                                تُقدم في المناسبات والأعراس وهي رمز الضيافة اليمنية الأصيلة.
+                            </p>
+                            <div class="ingredients-section">
+                                <div class="ingredients-title">المكونات الرئيسية:</div>
+                                <span class="ingredient-item">دقيق</span>
+                                <span class="ingredient-item">عسل نحل</span>
+                                <span class="ingredient-item">سمن عربي</span>
+                                <span class="ingredient-item">بيض</span>
+                                <span class="ingredient-item">حليب</span>
+                            </div>
+                            <div class="cultural-note">
+                                <h6><i class="fas fa-star me-2"></i>معلومة تراثية</h6>
+                                <p class="mb-0">تُقدم تقليدياً في الأعراس وتُعتبر رمز الحب والعطاء في الثقافة اليمنية</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Food Traditions Section -->
+    <section class="traditions-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 style="font-family: 'Amiri', serif;">تقاليد الطعام اليمنية</h2>
+                <p class="lead">عادات توارثتها الأجيال</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="tradition-card fade-in">
+                        <i class="fas fa-users fa-3x mb-3"></i>
+                        <h4>الأكل الجماعي</h4>
+                        <p>يُتناول الطعام جلوساً على الأرض في دائرة واحدة، مما يقوي الروابط الاجتماعية والعائلية</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="tradition-card fade-in">
+                        <i class="fas fa-hand-holding-heart fa-3x mb-3"></i>
+                        <h4>كرم الضيافة</h4>
+                        <p>تُقدم أفضل الأطباق للضيوف، ويُعتبر إكرام الضيف جزءاً لا يتجزأ من الثقافة اليمنية</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="tradition-card fade-in">
+                        <i class="fas fa-utensils fa-3x mb-3"></i>
+                        <h4>آداب المائدة</h4>
+                        <p>الأكل باليد اليمنى، والبدء باسم الله، وعدم الإسراف في الطعام من آداب المائدة اليمنية</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-section bg-dark text-light py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 style="font-family: 'Amiri', serif; color: #ff6b6b;">المطبخ اليمني التراثي</h5>
+                    <p>تذوق تراث الأجداد واكتشف النكهات الأصيلة من قلب جزيرة العرب</p>
+                </div>
+                <div class="col-md-6">
+                    <h6>روابط سريعة</h6>
+                    <div class="row">
+                        <div class="col-6">
+                            <ul class="list-unstyled">
+                                <li><a href="home-fast.html" class="text-light text-decoration-none">الرئيسية</a></li>
+                                <li><a href="stories.html" class="text-light text-decoration-none">الحكايات التراثية</a></li>
+                                <li><a href="gallery.html" class="text-light text-decoration-none">معرض الصور</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <ul class="list-unstyled">
+                                <li><a href="offers.html" class="text-light text-decoration-none">التراث والثقافة</a></li>
+                                <li><a href="figures.html" class="text-light text-decoration-none">الشخصيات</a></li>
+                                <li><a href="contact.html" class="text-light text-decoration-none">تواصل معنا</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <p>&copy; 2024 جميع الحقوق محفوظة. مشروع تعليمي لأغراض التعلم والتدريس.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const regionButtons = document.querySelectorAll('.region-btn');
+            const dishItems = document.querySelectorAll('.dish-item');
+            
+            // Fade in animation for dishes
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('show');
+                    }
+                });
+            }, observerOptions);
+            
+            dishItems.forEach(item => {
+                observer.observe(item);
+            });
+            
+            // Region filter functionality
+            regionButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const region = this.getAttribute('data-region');
+                    
+                    // Update active button
+                    regionButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filter dishes
+                    dishItems.forEach(item => {
+                        const itemRegion = item.getAttribute('data-region');
+                        
+                        if (region === 'all' || itemRegion === region) {
+                            item.style.display = 'block';
+                            setTimeout(() => {
+                                item.classList.add('show');
+                            }, 100);
+                        } else {
+                            item.classList.remove('show');
+                            setTimeout(() => {
+                                item.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+            
+            // Initially show all dishes
+            setTimeout(() => {
+                dishItems.forEach(item => {
+                    item.classList.add('show');
+                });
+            }, 100);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول - موقع السياحة</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        .login-container {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .login-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            overflow: hidden;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .login-header {
+            background: linear-gradient(45deg, #007bff, #6f42c1);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .form-container {
+            padding: 40px;
+        }
+        
+        .form-tab {
+            display: none;
+        }
+        
+        .form-tab.active {
+            display: block;
+        }
+        
+        .tab-buttons {
+            display: flex;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .tab-btn {
+            flex: 1;
+            padding: 15px;
+            background: #f8f9fa;
+            border: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .tab-btn.active {
+            background: linear-gradient(45deg, #007bff, #6f42c1);
+            color: white;
+        }
+        
+        .form-control {
+            border-radius: 10px;
+            border: 2px solid #e9ecef;
+            padding: 15px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 0 0.2rem rgba(0,123,255,0.25);
+        }
+        
+        .btn-login {
+            background: linear-gradient(45deg, #007bff, #6f42c1);
+            border: none;
+            border-radius: 10px;
+            padding: 15px;
+            font-size: 16px;
+            font-weight: 600;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-login:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,123,255,0.3);
+        }
+        
+        .back-to-site {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: white;
+            font-size: 18px;
+            text-decoration: none;
+            background: rgba(255,255,255,0.2);
+            padding: 10px 15px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        
+        .back-to-site:hover {
+            background: rgba(255,255,255,0.3);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container position-relative">
+        <div class="back-to-site">
+            <a href="home.html" class="btn btn-outline-light">
+                <i class="fas fa-arrow-left"></i> العودة إلى الموقع
+            </a>
+        </div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="login-card">
+                        <div class="login-header">
+                            <h2 class="mb-0">
+                                <i class="fas fa-plane me-3"></i>
+                                مرحباً بعودتك
+                            </h2>
+                            <p class="mt-3 mb-0">سجل دخولك أو أنشئ حساباً جديداً</p>
+                        </div>
+                        
+                        <div class="form-container">
+                            <div class="tab-buttons">
+                                <button class="tab-btn active" onclick="switchTab('login')">
+                                    <i class="fas fa-sign-in-alt me-2"></i>تسجيل الدخول
+                                </button>
+                                <button class="tab-btn" onclick="switchTab('register')">
+                                    <i class="fas fa-user-plus me-2"></i>إنشاء حساب
+                                </button>
+                            </div>
+                            
+                            <!-- Login Form -->
+                            <div id="loginTab" class="form-tab active">
+                                <form id="loginForm" novalidate>
+                                    <div class="mb-3">
+                                        <label for="loginEmail" class="form-label">
+                                            <i class="fas fa-envelope me-2"></i>البريد الإلكتروني
+                                        </label>
+                                        <input type="email" class="form-control" id="loginEmail" required>
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label for="loginPassword" class="form-label">
+                                            <i class="fas fa-lock me-2"></i>كلمة المرور
+                                        </label>
+                                        <input type="password" class="form-control" id="loginPassword" required>
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    
+                                    <div class="d-flex justify-content-between align-items-center mb-4">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="rememberMe">
+                                            <label class="form-check-label" for="rememberMe">
+                                                تذكرني
+                                            </label>
+                                        </div>
+                                        <a href="#" class="text-decoration-none">
+                                            نسيت كلمة المرور؟
+                                        </a>
+                                    </div>
+                                    
+                                    <button type="submit" class="btn btn-primary btn-login">
+                                        <i class="fas fa-sign-in-alt me-2"></i>تسجيل الدخول
+                                    </button>
+                                </form>
+                            </div>
+                            
+                            <!-- Register Form -->
+                            <div id="registerTab" class="form-tab">
+                                <form id="registerForm" novalidate>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="firstName" class="form-label">
+                                                    <i class="fas fa-user me-2"></i>الاسم الأول
+                                                </label>
+                                                <input type="text" class="form-control" id="firstName" required>
+                                                <div class="invalid-feedback"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="lastName" class="form-label">
+                                                    <i class="fas fa-user me-2"></i>الاسم الأخير
+                                                </label>
+                                                <input type="text" class="form-control" id="lastName" required>
+                                                <div class="invalid-feedback"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label for="registerEmail" class="form-label">
+                                            <i class="fas fa-envelope me-2"></i>البريد الإلكتروني
+                                        </label>
+                                        <input type="email" class="form-control" id="registerEmail" required>
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label for="phone" class="form-label">
+                                            <i class="fas fa-phone me-2"></i>رقم الهاتف
+                                        </label>
+                                        <input type="tel" class="form-control" id="phone" required>
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label for="registerPassword" class="form-label">
+                                            <i class="fas fa-lock me-2"></i>كلمة المرور
+                                        </label>
+                                        <input type="password" class="form-control" id="registerPassword" required minlength="8">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label for="confirmPassword" class="form-label">
+                                            <i class="fas fa-lock me-2"></i>تأكيد كلمة المرور
+                                        </label>
+                                        <input type="password" class="form-control" id="confirmPassword" required>
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    
+                                    <div class="form-check mb-4">
+                                        <input class="form-check-input" type="checkbox" id="agreeTerms" required>
+                                        <label class="form-check-label" for="agreeTerms">
+                                            أوافق على <a href="#" class="text-decoration-none">شروط الخدمة</a>
+                                        </label>
+                                        <div class="invalid-feedback">يجب الموافقة على الشروط</div>
+                                    </div>
+                                    
+                                    <button type="submit" class="btn btn-primary btn-login">
+                                        <i class="fas fa-user-plus me-2"></i>إنشاء حساب جديد
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="loginToast" class="toast" role="alert">
+            <div class="toast-header">
+                <i class="fas fa-check-circle text-success me-2"></i>
+                <strong class="me-auto">تم بنجاح</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+            </div>
+            <div class="toast-body">
+                تم تسجيل الدخول بنجاح! جاري التوجيه...
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+    
+    <script>
+        // Switch between login and register tabs
+        function switchTab(tabName) {
+            document.querySelectorAll('.form-tab').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            
+            if (tabName === 'login') {
+                document.getElementById('loginTab').classList.add('active');
+                document.querySelector('[onclick="switchTab(\'login\')"]').classList.add('active');
+            } else {
+                document.getElementById('registerTab').classList.add('active');
+                document.querySelector('[onclick="switchTab(\'register\')"]').classList.add('active');
+            }
+        }
+        
+        // Form validation
+        function validateLoginForm() {
+            const email = document.getElementById('loginEmail');
+            const password = document.getElementById('loginPassword');
+            let isValid = true;
+            
+            if (!email.value || !email.value.includes('@')) {
+                email.classList.add('is-invalid');
+                email.nextElementSibling.textContent = 'يرجى إدخال بريد إلكتروني صحيح';
+                isValid = false;
+            } else {
+                email.classList.remove('is-invalid');
+                email.classList.add('is-valid');
+            }
+            
+            if (!password.value || password.value.length < 6) {
+                password.classList.add('is-invalid');
+                password.nextElementSibling.textContent = 'كلمة المرور يجب أن تكون 6 أحرف على الأقل';
+                isValid = false;
+            } else {
+                password.classList.remove('is-invalid');
+                password.classList.add('is-valid');
+            }
+            
+            return isValid;
+        }
+        
+        function validateRegisterForm() {
+            const firstName = document.getElementById('firstName');
+            const lastName = document.getElementById('lastName');
+            const email = document.getElementById('registerEmail');
+            const phone = document.getElementById('phone');
+            const password = document.getElementById('registerPassword');
+            const confirmPassword = document.getElementById('confirmPassword');
+            const agreeTerms = document.getElementById('agreeTerms');
+            let isValid = true;
+            
+            // Validate each field
+            [firstName, lastName].forEach(field => {
+                if (!field.value.trim()) {
+                    field.classList.add('is-invalid');
+                    field.nextElementSibling.textContent = 'هذا الحقل مطلوب';
+                    isValid = false;
+                } else {
+                    field.classList.remove('is-invalid');
+                    field.classList.add('is-valid');
+                }
+            });
+            
+            if (!email.value || !email.value.includes('@')) {
+                email.classList.add('is-invalid');
+                email.nextElementSibling.textContent = 'يرجى إدخال بريد إلكتروني صحيح';
+                isValid = false;
+            } else {
+                email.classList.remove('is-invalid');
+                email.classList.add('is-valid');
+            }
+            
+            if (!phone.value || phone.value.length < 10) {
+                phone.classList.add('is-invalid');
+                phone.nextElementSibling.textContent = 'يرجى إدخال رقم هاتف صحيح';
+                isValid = false;
+            } else {
+                phone.classList.remove('is-invalid');
+                phone.classList.add('is-valid');
+            }
+            
+            if (!password.value || password.value.length < 8) {
+                password.classList.add('is-invalid');
+                password.nextElementSibling.textContent = 'كلمة المرور يجب أن تكون 8 أحرف على الأقل';
+                isValid = false;
+            } else {
+                password.classList.remove('is-invalid');
+                password.classList.add('is-valid');
+            }
+            
+            if (password.value !== confirmPassword.value) {
+                confirmPassword.classList.add('is-invalid');
+                confirmPassword.nextElementSibling.textContent = 'كلمتا المرور غير متطابقتين';
+                isValid = false;
+            } else {
+                confirmPassword.classList.remove('is-invalid');
+                confirmPassword.classList.add('is-valid');
+            }
+            
+            if (!agreeTerms.checked) {
+                agreeTerms.classList.add('is-invalid');
+                isValid = false;
+            } else {
+                agreeTerms.classList.remove('is-invalid');
+            }
+            
+            return isValid;
+        }
+        
+        // Event listeners
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (validateLoginForm()) {
+                // Show success toast
+                const toast = new bootstrap.Toast(document.getElementById('loginToast'));
+                toast.show();
+                
+                // Redirect after 2 seconds
+                setTimeout(() => {
+                    window.location.href = 'home.html';
+                }, 2000);
+            }
+        });
+        
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (validateRegisterForm()) {
+                // Show success toast
+                const toastElement = document.getElementById('loginToast');
+                toastElement.querySelector('.toast-body').textContent = 'تم إنشاء الحساب بنجاح!';
+                const toast = new bootstrap.Toast(toastElement);
+                toast.show();
+                
+                // Redirect after 2 seconds
+                setTimeout(() => {
+                    window.location.href = 'home.html';
+                }, 2000);
+            }
+        });
+    </script>
+</body>
+</html>
